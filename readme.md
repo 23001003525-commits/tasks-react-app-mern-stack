@@ -1,169 +1,143 @@
-📝 Task Manager – MERN Stack App with Authentication & Dashboard
 
-A full-stack Task Management Web Application built using the MERN stack (MongoDB, Express, React, Node.js) with JWT-based authentication, a protected dashboard, and complete CRUD functionality for tasks.
+<div align="center">
 
-This project demonstrates real-world frontend–backend integration, security practices, and scalable architecture.
+#  TaskKing - MERN Task Manager
 
-## ✨ Live Demo
-https://tasks-react-app-mern-stack-auth.vercel.app/
+</div>
+
+A **full-stack Task Management Web Application** built with **MERN stack** (MongoDB, Express, React, Node.js) featuring **JWT authentication**, **protected dashboard**, and **complete CRUD functionality** for user-specific tasks.
+
+## ✨ **Live Demo**
+https://tasks-react-app-mern-stack-auth.vercel.app/  
+
 (To use LiveDemo: Make sure to allow third party cookies, as frontend is hosted on Vercel while backend is hosted on render,
 Backend sets cookie for frontend(different site, so 3rd party cookies needs to be enabled for jwt cookies to work).
 
-🚀 Features
-Authentication & Security
-User registration and login
-JWT-based authentication (stored securely via HTTP-only cookies)
-Protected routes (dashboard accessible only when logged in)
-Password hashing using bcrypt
-Centralized error handling
+## ✨ Features
 
-🧑‍💻 User Dashboard
-View and update user profile
-Persistent login using Redux + localStorage
-Logout flow with token invalidation
+### **Authentication & Security**
+- User registration & login
+- JWT tokens in **HTTP-only cookies**
+- Protected routes & middleware
+- Password hashing (bcrypt)
+- Centralized error handling
 
-✅ Task Management (CRUD)
-Each logged-in user gets their own private task list:
-Create new tasks
-Edit task title
-Mark tasks as completed
-Delete tasks
-Tasks are user-scoped (one user cannot access another user’s tasks)
+### **User Dashboard**
+- View/update user profile
+- Persistent login (Redux + localStorage)
+- Secure logout (cookie invalidation)
 
-🎨 Frontend
-Built with React + Vite
-State management using Redux Toolkit + RTK Query
-UI components styled with React-Bootstrap
-Responsive design
-Toast notifications for feedback
+### ✅ **Task Management (CRUD)**
+- Private tasks per user
+- Create, edit, complete, delete
+- User-scoped data isolation
 
-⚙️ Backend
-Node.js + Express
-RESTful API design
-MongoDB with Mongoose ODM
-Clean MVC-style folder structure
+### **Modern Frontend**
+- React 18 + Vite (fast builds)
+- Redux Toolkit + RTK Query (caching)
+- React Bootstrap (responsive)
+- Toast notifications
 
-🛠️ Tech Stack
-Frontend
-React
-Vite
-React Router
-Redux Toolkit + RTK Query
-React-Bootstrap
-React Toastify
-Backend
-Node.js
-Express.js
-MongoDB + Mongoose
-JSON Web Tokens (JWT)
-bcrypt
+### **Production Backend**
+- RESTful API design
+- MongoDB + Mongoose
+- Clean MVC architecture
 
-📁 Project Structure
+## Tech Stack
+
+| **Frontend** | **Backend** |
+|--------------|-------------|
+| React | Node.js |
+| Vite | Express |
+| Redux Toolkit | MongoDB |
+| RTK Query | Mongoose |
+| React Bootstrap | JWT |
+| React Toastify | bcrypt |
+
+## Project Structure
+
+```
 root/
 ├── backend/
-│   ├── config/
-│   │   └── db.js
-│   ├── controllers/
-│   │   ├── userController.js
-│   │   └── taskController.js
-│   ├── middleware/
-│   │   ├── authMiddleware.js
-│   │   └── errorMiddleware.js
-│   ├── models/
-│   │   ├── userModel.js
-│   │   └── taskModel.js
-│   ├── routes/
-│   │   ├── userRoutes.js
-│   │   └── taskRoutes.js
+│   ├── config/         # Database
+│   ├── controllers/    # Business logic
+│   ├── middleware/     # Auth, errors
+│   ├── models/         # Mongoose schemas
+│   ├── routes/         # API endpoints
 │   └── server.js
-│
 ├── frontend/
 │   ├── src/
 │   │   ├── components/
 │   │   ├── screens/
-│   │   ├── slices/
+│   │   ├── slices/     # RTK Query + Redux
 │   │   ├── store.js
-│   │   ├── App.jsx
-│   │   └── main.jsx
-│   └── index.html
-│
-├── .env.example
-├── package.json
+│   │   └── App.jsx
 └── README.md
+```
 
-🔗 API Endpoints
+##  API Endpoints
 
-Auth & Users
-Method	Route	Description
-POST	/api/users	Register user
-POST	/api/users/auth	Login user
-POST	/api/users/logout	Logout user
-GET	/api/users/profile	Get user profile
-PUT	/api/users/profile	Update user profile
+### **Auth & Users**
+| Method | Route | Description |
+|--------|-------|-------------|
+| `POST` | `/api/users` | Register |
+| `POST` | `/api/users/auth` | Login |
+| `POST` | `/api/users/logout` | Logout |
+| `GET` | `/api/users/profile` | Get profile |
+| `PUT` | `/api/users/profile` | Update profile |
 
-Tasks (Protected)
-Method	Route	Description
-GET	/api/tasks	Get all tasks for logged-in user
-POST	/api/tasks	Create new task
-PUT	/api/tasks/:id	Update task
-DELETE	/api/tasks/:id	Delete task
+### **Tasks (Protected)**
+| Method | Route | Description |
+|--------|-------|-------------|
+| `GET` | `/api/tasks` | Get all tasks |
+| `POST` | `/api/tasks` | Create task |
+| `PUT` | `/api/tasks/:id` | Update task |
+| `DELETE` | `/api/tasks/:id` | Delete task |
 
+## Quick Start
 
-🧪 API Testing
-
-You can test all endpoints using:
-
-Postman
-
-Authentication is handled automatically via cookies once logged in.
-
-⚙️ Installation & Setup
-1️⃣ Clone the repository
+### 1. Clone & Backend Setup
+```bash
 git clone <your-repo-url>
 cd <project-folder>
 
-2️⃣ Backend setup(run them from project root)
+# Backend
 npm install
+# Create file → .env
+npm run server
+```
 
 
-Create .env file:
-
+**`.env` example:**
+```
 NODE_ENV=development
 PORT=5000
 MONGO_URI=your_mongodb_connection_string
-JWT_SECRET=your_secret_key
+JWT_SECRET=your_jwt_secret
+```
 
-
-Run backend:
-npm run server
-
-3️⃣ Frontend setup
+### 2. Frontend Setup
+```bash
 cd frontend
 npm install
 npm run dev
+```
 
-📈 Scalability & Production Notes
+## Production Ready
 
-If this were deployed to production:
+✅ **Deployed**: Vercel (frontend) + Render (backend)  
+✅ **Secure**: HTTP-only cookies + HTTPS  
+✅ **Scalable**: MVC structure, RTK Query caching  
+✅ **Extendable**: Add filters, pagination, RBAC easily  
 
-Frontend would be built and served via Nginx or CDN
+**Future upgrades**: Docker, Redis, task search, categories
 
-Backend would be containerized (Docker)
+## Status
 
-MongoDB Atlas for managed DB
-
-HTTPS + secure cookies
-
-Rate limiting & logging (Winston / Morgan)
-
-Role-based access control (RBAC) if extended
-
-Searching of task and pagination will be handled at server
-
-The codebase is already structured to support these upgrades with minimal refactoring.
+✅ **Complete & Live**  
+⭐ **Star this repo** if you find it useful!
 
 
-📌 Status
-
-✅ Complete and functional
-🚧 Actively extendable (filters, due dates, task categories, etc.)
+<div align="center">
+  <sub>Made with MERN Stack</sub>
+</div>
