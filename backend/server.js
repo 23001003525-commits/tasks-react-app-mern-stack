@@ -16,6 +16,12 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+// Express.js example
+app.use(cors({
+  origin: ['http://localhost:5173', 'https://tasks-react-app-mern-stack-auth.vercel.app'],
+  credentials: true
+}));
+
 
 app.use(cookieParser());
 
