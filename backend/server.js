@@ -7,6 +7,7 @@ import cookieParser from 'cookie-parser';   //req.cookies will now be available 
 import { notFound, errorHandler } from './middleware/errorMiddleware.js';
 import userRoutes from './routes/userRoutes.js';
 import taskRoutes from './routes/taskRoutes.js';
+import cors from 'cors';  
 
 const port = process.env.PORT || 5000; //Hosting platforms inject their own port, use those if found
 
@@ -14,13 +15,17 @@ connectDB();
 
 const app = express();
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-// Express.js example
 app.use(cors({
-  origin: ['http://localhost:5173', 'https://tasks-react-app-mern-stack-auth.vercel.app'],
+  origin: [
+    'http://localhost:5173', 
+    'https://tasks-react-app-mern-stack-auth.vercel.app'
+  ],
   credentials: true
 }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+
 
 
 app.use(cookieParser());
