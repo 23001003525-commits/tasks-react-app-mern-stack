@@ -4,89 +4,58 @@ A full-stack Task Management Web Application built using the MERN stack (MongoDB
 
 This project demonstrates real-world frontend–backend integration, security practices, and scalable architecture.
 
+## ✨ Live Demo
+https://tasks-react-app-mern-stack-auth.vercel.app/
+(To use LiveDemo: Make sure to allow third party cookies, as frontend is hosted on Vercel while backend is hosted on render,
+Backend sets cookie for frontend(different site, so 3rd party cookies needs to be enabled for jwt cookies to work).
+
 🚀 Features
-🔐 Authentication & Security
-
+Authentication & Security
 User registration and login
-
 JWT-based authentication (stored securely via HTTP-only cookies)
-
 Protected routes (dashboard accessible only when logged in)
-
 Password hashing using bcrypt
-
 Centralized error handling
 
 🧑‍💻 User Dashboard
-
 View and update user profile
-
 Persistent login using Redux + localStorage
-
 Logout flow with token invalidation
 
 ✅ Task Management (CRUD)
-
 Each logged-in user gets their own private task list:
-
 Create new tasks
-
 Edit task title
-
 Mark tasks as completed
-
 Delete tasks
-
 Tasks are user-scoped (one user cannot access another user’s tasks)
 
 🎨 Frontend
-
 Built with React + Vite
-
 State management using Redux Toolkit + RTK Query
-
 UI components styled with React-Bootstrap
-
 Responsive design
-
 Toast notifications for feedback
 
 ⚙️ Backend
-
 Node.js + Express
-
 RESTful API design
-
 MongoDB with Mongoose ODM
-
 Clean MVC-style folder structure
 
 🛠️ Tech Stack
-
 Frontend
-
 React
-
 Vite
-
 React Router
-
 Redux Toolkit + RTK Query
-
 React-Bootstrap
-
 React Toastify
-
 Backend
-
 Node.js
-
 Express.js
-
 MongoDB + Mongoose
-
 JSON Web Tokens (JWT)
-
 bcrypt
 
 📁 Project Structure
@@ -153,7 +122,7 @@ Authentication is handled automatically via cookies once logged in.
 git clone <your-repo-url>
 cd <project-folder>
 
-2️⃣ Backend setup
+2️⃣ Backend setup(run them from project root)
 npm install
 
 
@@ -166,7 +135,6 @@ JWT_SECRET=your_secret_key
 
 
 Run backend:
-
 npm run server
 
 3️⃣ Frontend setup
